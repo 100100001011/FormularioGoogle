@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -8,6 +9,29 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  //====>> Vuele a rescribir todo en la pantalla
+  @override
+  void initState() {
+    super.initState();
+  }
+  //<<=====
+
+  //METODO ASINCRONO
+  void obtenerUsuarios() async {
+    //ASIGNAMOS A UNA VARIABLE LA TABLA
+    CollectionReference collectionReference =
+        FirebaseFirestore.instance.collection("usuarios");
+        //HACEMOS UN QUERY PARA CONSULTAR LOS DATOS
+    QuerySnapshot usuarios = await collectionReference.get();
+    //CONSULTAMOS LOS DATOS
+    if (usuarios.docs.isNotEmpty) {
+      for (var i in usuarios.docs) {
+        print(i.data());
+      }
+    }
+  }
+
+  //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +113,9 @@ class _LoginState extends State<Login> {
                     elevation: 5.0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(22.0)),
-                    onPressed: () {},
+                    onPressed: () {
+                      obtenerUsuarios();
+                    },
                     color: Colors.lightBlue,
                     child: const Text('Login',
                         style: TextStyle(color: Colors.white))),
