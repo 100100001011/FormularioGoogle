@@ -15,17 +15,17 @@ class _LoginState extends State<Login> {
         fit: StackFit.expand,
         children: [
           Positioned(
-              bottom: 582,
-              right: 0,
-              child: Container(
+            bottom: 582,
+            right: 0,
+            child: Container(
                 width: 395.0,
                 height: 200.0,
                 decoration: const BoxDecoration(
-                    image: DecorationImage(
+                  image: DecorationImage(
                       fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://cdn.donmai.us/original/58/ca/__ikuuru_and_shaian_aic_and_1_more_drawn_by_kobayashi_makoto_illustrator__58caf5977eb819100fff43e5ab683bd6.jpg'),)),
-              )),
+                      image: AssetImage('Media/Img/fondo.png')),
+                )),
+          ),
           Positioned(
               bottom: 150,
               right: 20,
@@ -47,10 +47,8 @@ class _LoginState extends State<Login> {
                             width: 200,
                             height: 150,
                             decoration: BoxDecoration(
-                                color: Colors.red,
                                 borderRadius: BorderRadius.circular(50.0)),
-                            child:
-                                Image.asset('Media/Img/1.jpg')),
+                            child: Image.asset('Media/Img/1.png')),
                       ),
                     ),
                     const Padding(
@@ -81,6 +79,21 @@ class _LoginState extends State<Login> {
                   ],
                 ),
               )),
+          Positioned(
+              bottom: 130,
+              right: 100,
+              child: SizedBox(
+                width: 170,
+                height: 50,
+                child: MaterialButton(
+                    elevation: 5.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(22.0)),
+                    onPressed: () {},
+                    color: Colors.lightBlue,
+                    child: const Text('Login',
+                        style: TextStyle(color: Colors.white))),
+              ))
         ],
       ),
     );
